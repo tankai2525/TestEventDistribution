@@ -1,4 +1,4 @@
-package kai.tan.com.testeventdistribution;
+package kai.tan.com.testeventdistribution.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -17,12 +17,12 @@ public class MyLayout extends LinearLayout {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
+
         Log.d(TAG, "viewgroup-dispatchTouchEvent-start: " + ev.getAction());
         boolean b = super.dispatchTouchEvent(ev);
         Log.d(TAG, "viewgroup-dispatchTouchEvent-return: " + ev.getAction() + "-" + b);
         return b;
-//        return true;//getWindow().superDispatchTouchEvent(ev)=true
-//        return false; //getWindow().superDispatchTouchEvent(ev)=false 那么activity的onTouchEvent会被执行
+//        return false;
     }
 
     @Override

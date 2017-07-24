@@ -1,13 +1,13 @@
-package kai.tan.com.testeventdistribution;
+package kai.tan.com.testeventdistribution.view;
 
 
 import android.content.Context;
+import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.widget.Button;
 
-public class MyButton extends Button {
+public class MyButton extends AppCompatButton {
 
     private static final String TAG = "MyButton";
 
