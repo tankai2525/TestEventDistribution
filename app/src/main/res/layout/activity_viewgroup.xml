@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<kai.tan.com.testeventdistribution.MyLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<kai.tan.com.testeventdistribution.view.MyLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/my_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,17 +10,17 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
 
-    <kai.tan.com.testeventdistribution.MyButton
+    <kai.tan.com.testeventdistribution.view.MyButton
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Button1" />
 
-    <kai.tan.com.testeventdistribution.MyButton
+    <kai.tan.com.testeventdistribution.view.MyButton
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Button2" />
 
 
-</kai.tan.com.testeventdistribution.MyLayout>
+</kai.tan.com.testeventdistribution.view.MyLayout>

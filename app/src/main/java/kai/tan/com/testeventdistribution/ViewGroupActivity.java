@@ -23,13 +23,13 @@ public class ViewGroupActivity extends Activity {
         Button button1 = (Button) findViewById(R.id.button1);
         Button button2 = (Button) findViewById(R.id.button2);
 
-//        myLayout.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                Log.d(TAG, "onTouch: myLayout-" + event.getAction());
-//                return false;-
-//            }
-//        });
+        myLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.d(TAG, "onTouch: myLayout-" + event.getAction());
+                return false;
+            }
+        });
 
         myLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,13 +52,13 @@ public class ViewGroupActivity extends Activity {
             }
         });
 
-//        button2.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                Log.d(TAG, "onTouch: button2-"+ event.getAction());
-//                return false;
-//            }
-//        });
+        button2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.d(TAG, "onTouch: button2-"+ event.getAction());
+                return false;
+            }
+        });
 
     }
 
