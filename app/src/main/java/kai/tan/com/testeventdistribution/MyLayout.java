@@ -21,6 +21,8 @@ public class MyLayout extends LinearLayout {
         boolean b = super.dispatchTouchEvent(ev);
         Log.d(TAG, "viewgroup-dispatchTouchEvent-return: " + ev.getAction() + "-" + b);
         return b;
+//        return true;//getWindow().superDispatchTouchEvent(ev)=true
+//        return false; //getWindow().superDispatchTouchEvent(ev)=false 那么activity的onTouchEvent会被执行
     }
 
     @Override
