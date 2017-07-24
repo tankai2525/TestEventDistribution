@@ -1,7 +1,7 @@
 package kai.tan.com.testeventdistribution;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 /**
  * 理解事件分发
  */
-public class ViewGroupActivity extends Activity {
+public class ViewGroupActivity extends AppCompatActivity {
 
     private static final String TAG = "ViewActivity";
 
