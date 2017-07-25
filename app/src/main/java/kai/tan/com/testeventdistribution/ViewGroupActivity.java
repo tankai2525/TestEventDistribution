@@ -9,7 +9,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 /**
- * 理解事件分发
+ * 理解Activity事件分发
+ * 理解GroupView事件分发
  */
 public class ViewGroupActivity extends AppCompatActivity {
 
