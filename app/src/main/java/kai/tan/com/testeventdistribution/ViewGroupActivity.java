@@ -5,12 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
+
+import kai.tan.com.testeventdistribution.view.MyButton;
 
 /**
  * 理解Activity事件分发
  * 理解GroupView事件分发
+ * 理解View事件分发
  */
 public class ViewGroupActivity extends AppCompatActivity {
 
@@ -21,8 +23,8 @@ public class ViewGroupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewgroup);
         LinearLayout myLayout = (LinearLayout) findViewById(R.id.my_layout);
-        Button button1 = (Button) findViewById(R.id.button1);
-        Button button2 = (Button) findViewById(R.id.button2);
+        MyButton button1 = (MyButton) findViewById(R.id.button1);
+        MyButton button2 = (MyButton) findViewById(R.id.button2);
 
         myLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
