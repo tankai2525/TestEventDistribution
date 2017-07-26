@@ -5,9 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import kai.tan.com.testeventdistribution.view.MyButton;
+import kai.tan.com.testeventdistribution.view.MyLayout;
 
 /**
  * 理解Activity事件分发
@@ -22,7 +22,7 @@ public class ViewGroupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewgroup);
-        LinearLayout myLayout = (LinearLayout) findViewById(R.id.my_layout);
+        MyLayout myLayout = (MyLayout) findViewById(R.id.my_layout);
         MyButton button1 = (MyButton) findViewById(R.id.button1);
         MyButton button2 = (MyButton) findViewById(R.id.button2);
 

@@ -6,7 +6,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
-
+/**
+ * 理解onInterceptTouchEvent 拦截和不拦截在同一事件序列中的调用次数
+ */
 public class MyLayout extends LinearLayout {
 
     private static final String TAG = "MyLayout";
@@ -27,10 +29,18 @@ public class MyLayout extends LinearLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+
         Log.d(TAG, "viewgroup-onInterceptTouchEvent-start: " + ev.getAction());
         boolean b = super.onInterceptTouchEvent(ev);
         Log.d(TAG, "viewgroup-onInterceptTouchEvent-return: " + ev.getAction() + "-" + b);
         return b;
+//        return true;
+        /*
+         return true ：拦截事件
+         1 子控件dispatchTouchEvent不会被调用
+         2 如果当前view拦截了某个事件，那么在同一个事件序列（手指接触屏幕那一刻到手指离开屏幕的那一刻）此方法不会再次被调用。
+              比如按下的时候拦截了，移动和抬起事件时就不会再调用这个方法。
+          */
     }
 
     @Override
