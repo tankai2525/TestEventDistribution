@@ -18,6 +18,8 @@ import android.widget.ImageView;
 public class ViewActivity extends AppCompatActivity {
 
     private static final String TAG = "ViewActivity";
+    private Button button;
+    private Button button1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +50,8 @@ public class ViewActivity extends AppCompatActivity {
             }
         });
 
-        Button button = (Button) findViewById(R.id.button);
+        button = (Button) findViewById(R.id.button);
+        button1 = (Button) findViewById(R.id.button1);//button1 在 button上面
 
         /*
             这是view dispatchTouchEvent 方法中一段代码完全解释了 onTouch , onTouchEvent 什么时候调用
@@ -129,6 +132,34 @@ public class ViewActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Log.d(TAG, "buttonZ: " + button.getZ() + " button1Z:" + button1.getZ());
+            //这里button 和 button1 的getZ()都是等于6.0
+            //ViewGroup源码中 buildTouchDispatchChildList()集合中的顺序： button在button1前面。
+
+            /*
+             final ArrayList<View> preorderedList = buildOrderedChildList();//返回一个按Z属性大小排序的集合，从小到大。
+                        final boolean customOrder = preorderedList == null
+                                && isChildrenDrawingOrderEnabled();
+                        final View[] children = mChildren;
+                        for (int i = childrenCount - 1; i >= 0; i--) {
+                            final int childIndex = customOrder
+                                    ? getChildDrawingOrder(childrenCount, i) : i;
+                            final View child = (preorderedList == null)
+                                    ? children[childIndex] : preorderedList.get(childIndex);
+                            .....省略
+                        }
+             */
+            /*
+            上面是ViewGroup给子view下发事件代码，先给谁发呢， for循环是从最后开始遍历
+            当前集合preorderedList是这样[imageView, button, button1] 那么就是会从button1开始，所以在我们点击button1的时候会现分发事件给button1。
+             */
+
+        }
     }
 }

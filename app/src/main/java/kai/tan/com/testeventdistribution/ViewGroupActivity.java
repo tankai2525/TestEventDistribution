@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import kai.tan.com.testeventdistribution.view.MyButton;
+import kai.tan.com.testeventdistribution.view.MyButton2;
 import kai.tan.com.testeventdistribution.view.MyLayout;
 
 /**
@@ -24,7 +25,9 @@ public class ViewGroupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_viewgroup);
         MyLayout myLayout = (MyLayout) findViewById(R.id.my_layout);
         MyButton button1 = (MyButton) findViewById(R.id.button1);
-        MyButton button2 = (MyButton) findViewById(R.id.button2);
+        MyButton2 button2 = (MyButton2) findViewById(R.id.button2);
+
+//        myLayout.requestDisallowInterceptTouchEvent(true);
 
         myLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -78,6 +81,7 @@ public class ViewGroupActivity extends AppCompatActivity {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        //getWindow().superDispatchTouchEvent(ev) 返回false这里才会执行
         Log.d(TAG, "activity-onTouchEvent-start: " + event.getAction());
         boolean b = super.onTouchEvent(event);
         Log.d(TAG, "activity-onTouchEvent-return: " + event.getAction() + "-" + b);

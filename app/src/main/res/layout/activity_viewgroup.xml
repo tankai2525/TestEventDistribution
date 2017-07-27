@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Button1" />
 
-    <kai.tan.com.testeventdistribution.view.MyButton
+    <kai.tan.com.testeventdistribution.view.MyButton2
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
