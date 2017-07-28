@@ -1,6 +1,8 @@
 package com.example;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class MyClass {
 
@@ -9,13 +11,32 @@ public class MyClass {
         System.out.println(hexStr2BinStr("80000"));
         System.out.println(~(0x80000));
 
-        ArrayList<Integer> list = new ArrayList<>(3);
+        ArrayList<Integer> list = new ArrayList<>();
         list.add(0,1);
         list.add(0,2);
         list.add(0,3);
         list.add(1,4);
         System.out.println(list.size());
         System.out.println(list);
+
+//        List list1 = getRandoms(list,5);
+//        System.out.println(list1.size());
+//        System.out.println(list1);
+    }
+
+    public static <T> List<T> getRandoms(List<T> list, int count) {
+
+        List<T> labels = new ArrayList<>();
+        if (list != null && list.size() > 0) {
+            count = count > list.size() ? list.size() : count;
+            Random random = new Random();
+            for (int i = 0; i < count; i++) {
+                int r = random.nextInt(list.size());
+                labels.add(list.get(r));
+                list.remove(r);
+            }
+        }
+        return labels;
     }
 
 
