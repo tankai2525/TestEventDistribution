@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -26,7 +27,9 @@ public class ViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
 
-        View root = findViewById(R.id.activity_main);//根view
+        View root = ((ViewGroup)getWindow().getDecorView().findViewById(android.R.id.content)).getChildAt(0);
+//        View root1 = findViewById(R.id.activity_main);//根view
+//        Log.d(TAG, "root==root1:" + (root == root1));//是true
         //场景：当父控件clickable=true, 子控件clickable=true，点击子控件时，只会执行子控件onClick方法，为啥？
         /*
             因为

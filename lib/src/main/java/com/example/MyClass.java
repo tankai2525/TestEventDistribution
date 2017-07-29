@@ -19,6 +19,8 @@ public class MyClass {
         System.out.println(list.size());
         System.out.println(list);
 
+        System.out.println(1 << 3);
+
 //        List list1 = getRandoms(list,5);
 //        System.out.println(list1.size());
 //        System.out.println(list1);
