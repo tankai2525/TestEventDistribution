@@ -15,8 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewActivity"/>
-        <activity android:name=".ViewGroupActivity"/>
+        <activity android:name=".ViewActivity" />
+        <activity android:name=".ViewGroupActivity" />
+        <activity android:name=".ScrollerClash1" />
+        <activity android:name=".ScrollerClash2" />
+        <activity android:name=".ScrollerClash3"></activity>
     </application>
 
 </manifest>

@@ -7,23 +7,35 @@ import java.util.Random;
 public class MyClass {
 
     public static void main(String[] args) {
-        System.out.println(1000 & 0xff);
-        System.out.println(hexStr2BinStr("80000"));
-        System.out.println(~(0x80000));
-
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(0,1);
-        list.add(0,2);
-        list.add(0,3);
-        list.add(1,4);
-        System.out.println(list.size());
-        System.out.println(list);
-
-        System.out.println(1 << 3);
+//        System.out.println(1000 & 0xff);
+//        System.out.println(hexStr2BinStr("80000"));
+//        System.out.println(~(0x80000));
+//
+//        ArrayList<Integer> list = new ArrayList<>();
+//        list.add(0,1);
+//        list.add(0,2);
+//        list.add(0,3);
+//        list.add(1,4);
+//        System.out.println(list.size());
+//        System.out.println(list);
+//
+//        System.out.println(1 << 3);
 
 //        List list1 = getRandoms(list,5);
 //        System.out.println(list1.size());
 //        System.out.println(list1);
+
+
+        MyClass myClass = new MyClass();
+        myClass.test();
+
+    }
+
+    public void test() {
+        A a = new A();
+        a.i = 1;
+        updateA(a);
+        System.out.println(a.i);
     }
 
     public static <T> List<T> getRandoms(List<T> list, int count) {
@@ -97,5 +109,14 @@ public class MyClass {
         return outStr;
     }
 
+    public static void updateA(A a) {
+        a.i = 2;
+    }
+
+    private class A {
+        public A(){}
+
+        public int i;
+    }
 
 }

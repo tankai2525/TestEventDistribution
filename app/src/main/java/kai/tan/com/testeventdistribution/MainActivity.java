@@ -25,6 +25,15 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button2:
                 intent = new Intent(MainActivity.this, ViewGroupActivity.class);
                 break;
+            case R.id.button3:
+                intent = new Intent(MainActivity.this, ScrollerClash1.class);
+                break;
+            case R.id.button4:
+                intent = new Intent(MainActivity.this, ScrollerClash2.class);
+                break;
+            case R.id.button5:
+                intent = new Intent(MainActivity.this, ScrollerClash3.class);
+                break;
         }
         if (intent == null) {
             Log.e(TAG, "onClick: intent为空");

@@ -7,8 +7,16 @@ import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
 /**
- * 理解onInterceptTouchEvent 拦截和不拦截在同一事件序列中的调用次数
- * 拦截只会调用一次，不拦截每次事件都会被调用
+ * 理解onInterceptTouchEvent
+ * 理解onInterceptTouchEvent 什么时候会被调用，什么时候不会在调用了
+ *      第一次down事件开始，FLAG_DISALLOW_INTERCEPT标记位会清空（mGroupFlags &= ~FLAG_DISALLOW_INTERCEPT），肯定会被调用
+ *      非down事件开始时，mFirstTouchTarget != null 并且 FLAG_DISALLOW_INTERCEPT标记位false, 会被调用
+ *
+ * 理解这种情况，当是down事件时或者mFirstTouchTarget != null时 ：我们会获取控件的FLAG_DISALLOW_INTERCEPT标记位
+ *      FLAG_DISALLOW_INTERCEPT标记位为false, 代表可能要拦截，onInterceptTouchEvent会被调用，最终要不要拦截取决于onInterceptTouchEvent返回值
+ *      FLAG_DISALLOW_INTERCEPT标记位为true, 代表不拦截，onInterceptTouchEvent不会调用
+ *
+ * 理解父控件一旦开始拦截任何一个事件，那么后续的事件都会交给它来处理。onInterceptTouchEvent不会再被调用
  */
 public class MyLayout extends LinearLayout {
 
@@ -36,24 +44,26 @@ public class MyLayout extends LinearLayout {
         Log.d(TAG, "viewgroup-onInterceptTouchEvent-return: " + ev.getAction() + "-" + b);
         return b;
 
-//        return true;
+
         /*
-         return true ：拦截事件
+         场景1
+         return true ：拦截所有事件
          1 子控件dispatchTouchEvent不会被调用
          2 如果当前view拦截了某个事件，那么在同一个事件序列（手指接触屏幕那一刻到手指离开屏幕的那一刻）此方法不会再次被调用。
               比如按下的时候拦截了，移动和抬起事件时就不会再调用这个方法。
           */
+//        return true;
 
 
         /*
+         场景2
          拦截move事件
-         button dispatchTouchEvent 出现cancel事件，有时间在深入。
          */
 //        boolean b;
 //        if(ev.getAction() == MotionEvent.ACTION_MOVE) {
-//            b = true;
+//            b = true;// 拦截move事件
 //        }else {
-//            b = super.onInterceptTouchEvent(ev);
+//            b = false;// 其他事件不拦截
 //        }
 //        Log.d(TAG, "viewgroup-onInterceptTouchEvent-return: " + ev.getAction() + "-" + b);
 //        return b;
